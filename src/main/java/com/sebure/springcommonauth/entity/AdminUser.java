@@ -32,6 +32,6 @@ public class AdminUser extends BaseTimeEntity {
     @Column(name ="LAST_LOGIN_IP")
     private String lastLoginIp;
 
-    @Column(name ="Last Login Time")
+    @Column(name ="Last_Login_Time")
     private LocalDateTime lastLoginTime;
 }
