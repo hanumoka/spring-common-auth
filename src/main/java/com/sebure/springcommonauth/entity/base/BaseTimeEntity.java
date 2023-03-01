@@ -1,4 +1,4 @@
-package com.sebure.springcommonauth.entity.auditing;
+package com.sebure.springcommonauth.entity.base;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
