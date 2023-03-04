@@ -17,8 +17,9 @@ public class SecurityConfig {
             Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/test").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
+//                .antMatchers("/test").permitAll()
+//                .anyRequest().authenticated()
 //                .and()
 //                .formLogin()
 //                .disable()
