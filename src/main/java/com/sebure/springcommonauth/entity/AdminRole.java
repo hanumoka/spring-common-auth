@@ -7,14 +7,14 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(name="ADMIN_ROLE")
+@Table(name="admin_role")
 @Entity
 public class AdminRole extends BaseTimeEntity {
 
     @Id
-    @Column(name ="ADMIN_ROLE_ID")
+    @Column(name ="id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long adminRoleId;
+    private Long id;
 
     @OneToMany(mappedBy = "adminRole")
     private List<AdminUserRoleLink> adminUserRoleLinkList = new ArrayList<>();
@@ -22,12 +22,12 @@ public class AdminRole extends BaseTimeEntity {
     @OneToMany(mappedBy = "adminRole")
     private List<AdminRoleResourceApiLink> adminRoleResourceApiLinkList = new ArrayList<>();
 
-    @Column(name ="ROLE_NAME")
+    @Column(name ="role_name")
     private String roleName;
 
-    @Column(name ="ROLE_TYPE")
+    @Column(name ="role_type")
     private String roleType;
 
-    @Column(name ="DESCRIPTION")
+    @Column(name ="description")
     private String description;
 }

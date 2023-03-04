@@ -8,35 +8,35 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(name="ADMIN_USER")
+@Table(name="admin_user")
 @Entity
 public class AdminUser extends BaseTimeEntity {
     @Id
-    @Column(name ="ADMIN_USER_ID")
+    @Column(name ="id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long adminUserId;
+    private Long id;
 
     @OneToMany(mappedBy = "adminUser")
     private List<AdminUserRoleLink> adminUserRoleLinkList = new ArrayList<>();
 
-    @Column(name ="USERNAME")
+    @Column(name ="username")
     private String username;
 
-    @Column(name ="EMAIL")
+    @Column(name ="email")
     private String email;
 
-    @Column(name ="PASSWORD")
+    @Column(name ="password")
     private String password;
 
-    @Column(name ="ACTIVE")
+    @Column(name ="active")
     private Boolean active;
 
-    @Column(name ="BLOCKED")
+    @Column(name ="blocked")
     private Boolean blocked;
 
-    @Column(name ="LAST_LOGIN_IP")
+    @Column(name ="last_login_ip")
     private String lastLoginIp;
 
-    @Column(name ="LAST_LOGIN_DATETIME")
+    @Column(name ="last_login_datetime")
     private LocalDateTime lastLoginDateTime;
 }

@@ -11,7 +11,7 @@ public class AdminUserRoleLink {
     @Id
     @Column(name ="ADMIN_USER_ROLE_LINK_ID")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long adminUserRoleLinkId;
+    private Long id;
 
     @JoinColumn(name ="ADMIN_USER_ID")
     @ManyToOne

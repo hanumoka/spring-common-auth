@@ -2,20 +2,20 @@ package com.sebure.springcommonauth.entity;
 
 import javax.persistence.*;
 
-@Table(name="ADMIN_ROLE_RESOURCE_API_LINK")
+@Table(name="admin_role_resource_api_link")
 @Entity
 public class AdminRoleResourceApiLink {
 
     @Id
-    @Column(name ="ADMIN_ROLE_RESOURCE_API_LINK_ID")
+    @Column(name ="id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long adminRoleResourceApiLinkId;
+    private Long id;
 
-    @JoinColumn(name = "ADMIN_ROLE_ID")
+    @JoinColumn(name = "admin_role_id")
     @ManyToOne
     private AdminRole adminRole;
 
-    @JoinColumn(name = "RESOURCE_API_ID")
+    @JoinColumn(name = "resource_api_id")
     @ManyToOne
     private ResourceApi resourceApi;
 }

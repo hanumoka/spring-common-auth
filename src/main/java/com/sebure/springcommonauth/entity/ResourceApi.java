@@ -5,33 +5,33 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(name="RESOURCE_API")
+@Table(name="resource_api")
 @Entity
 public class ResourceApi {
     @Id
-    @Column(name ="RESOURCE_API_ID")
+    @Column(name ="id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long ResourceApiId;
+    private Long id;
 
     @OneToMany(mappedBy = "resourceApi")
     private List<AdminRoleResourceApiLink> adminRoleResourceApiLinkList = new ArrayList<>();
 
-    @Column(name = "RESOURCE_CATEGORY")
+    @Column(name = "resource_category")
     private String resourceCategory; // TODO: enum
 
-    @Column(name = "RESOURCE_TYPE")
+    @Column(name = "resource_type")
     private String resourceType;     // TODO: enum
 
-    @Column(name = "RESOURCE_NAME")
+    @Column(name = "resource_name")
     private String resourceName;
 
-    @Column(name = "HTTP_METHOD")
+    @Column(name = "http_method")
     private String httpMethod;
 
-    @Column(name = "HTTP_URL")
+    @Column(name = "http_url")
     private String httpUrl;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 //    private Long version; // TODO : version은 공통 부모엔티티에 정의하자.
 
