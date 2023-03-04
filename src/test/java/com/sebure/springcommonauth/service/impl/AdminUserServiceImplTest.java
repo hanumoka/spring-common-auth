@@ -1,11 +1,15 @@
 package com.sebure.springcommonauth.service.impl;
 
+import com.sebure.springcommonauth.entity.AdminUser;
 import com.sebure.springcommonauth.repository.AdminUserRepository;
+import com.sebure.springcommonauth.service.AdminUserService;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class AdminUserServiceImplTest {
@@ -13,48 +17,42 @@ class AdminUserServiceImplTest {
     @Mock
     AdminUserRepository adminUserRepository;
 
-//    @Nested
-//    @DisplayName("게시물 생성")
-//    class CreateArticle {
-//        private String text;
-//
-//        @BeforeEach
-//        void setup() {
-//            text = "새로운 게시물 내용";
-//        }
-//
-//        @Nested
-//        @DisplayName("정상 케이스")
-//        class SuccessCase {
-//            @Test
-//            @DisplayName("새로운 게시물 생성")
-//            void createArticleSuccess1() {
-//                Article article = new Article(text);
-//
-//                when(articleRepository.save(any(Article.class))).thenReturn(article);
-//
-//                ArticleService articleService = new ArticleService(articleRepository);
-//                Article result = articleService.createArticle(text);
-//
-//                assertThat(result.getText()).isEqualTo("새로운 게시물 내용");
-//            }
-//        }
-//
-//        @Nested
-//        @DisplayName("비정상 케이스")
-//        class FailCase {
-//            @Test
-//            @DisplayName("반환된 게시물이 NULL인 경우")
-//            void createArticleFail1() {
-//                when(articleRepository.save(any(Article.class))).thenReturn(null);
-//
-//                ArticleService articleService = new ArticleService(articleRepository);
-//                Article result = articleService.createArticle(text);
-//
-//                assertThat(result).isNull();
-//            }
-//        }
-//    }
+    @Nested
+    @DisplayName("AdminUser 생성")
+    class CreateAdminUser {
+        private String username;
+        private String email;
+        private String password;
+        private Boolean active;
+        private Boolean blocked;
 
+        @BeforeEach
+        void setUp() {
+            username = "test_admin1";
+            email = "test@test.com";
+            password = "password";
+            active = true;
+            blocked = false;
+        }
+
+        @Nested
+        @DisplayName("정상케이스")
+        class SuccessCase {
+
+            @Test
+            @DisplayName("새로운 AdminUser 생성")
+            void createAdminUser() {
+                AdminUser adminUser = AdminUser.create(username, email, password, active, blocked);
+                Mockito.when(adminUserRepository.save(Mockito.any(AdminUser.class))).thenReturn(adminUser);
+
+                AdminUserService adminUserService = new AdminUserServiceImpl(adminUserRepository);
+                AdminUser result = adminUserService.save(adminUser);
+
+                Assertions.assertThat(result.getEmail()).isEqualTo(email);
+                Assertions.assertThat(result.getUsername()).isEqualTo(username);
+            }
+        }
+
+    }
 
 }

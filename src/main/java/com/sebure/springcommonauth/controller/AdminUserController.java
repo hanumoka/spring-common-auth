@@ -1,6 +1,8 @@
 package com.sebure.springcommonauth.controller;
 
 import com.sebure.springcommonauth.entity.AdminUser;
+import com.sebure.springcommonauth.service.AdminUserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/admin-users")
 public class AdminUserController {
 
+    private final AdminUserService adminUserService;
+
+    public AdminUserController(AdminUserService adminUserService) {
+        this.adminUserService = adminUserService;
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<AdminUser> getUserById(@PathVariable("id") Long id) {
