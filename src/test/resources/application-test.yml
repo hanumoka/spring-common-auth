@@ -12,7 +12,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
   datasource:
-    url: jdbc:mysql://localhost:3306/spring_common_auth?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/spring_common_auth_test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     hikari:
       username: root
       password: password

@@ -7,24 +7,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/admin-users")
 public class AdminUserController {
 
     private final AdminUserService adminUserService;
 
-    public AdminUserController(AdminUserService adminUserService) {
-        this.adminUserService = adminUserService;
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<AdminUser> getUserById(@PathVariable("id") Long id) {
-//        User user = userService.getUserById(id);
-//        if (user != null) {
-//            return new ResponseEntity<>(user, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-        return null;
+        AdminUser adminUser = adminUserService.getAdminUserById(id);
+        if(adminUser == null){
+            return ResponseEntity.notFound().build();
+        }else {
+            return ResponseEntity.ok(adminUser);
+        }
     }
 
     @PostMapping("/")

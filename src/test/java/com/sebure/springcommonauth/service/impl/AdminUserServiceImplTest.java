@@ -46,7 +46,7 @@ class AdminUserServiceImplTest {
                 Mockito.when(adminUserRepository.save(Mockito.any(AdminUser.class))).thenReturn(adminUser);
 
                 AdminUserService adminUserService = new AdminUserServiceImpl(adminUserRepository);
-                AdminUser result = adminUserService.save(adminUser);
+                AdminUser result = adminUserService.saveAdminUser(adminUser);
 
                 Assertions.assertThat(result.getEmail()).isEqualTo(email);
                 Assertions.assertThat(result.getUsername()).isEqualTo(username);

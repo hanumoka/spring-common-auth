@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface AdminUserService {
 
-    AdminUser save(AdminUser adminUser);
-    void deleteById(Long id);
-    AdminUser getById(Long id);
-    List<AdminUser> getAll();
+    AdminUser saveAdminUser(AdminUser adminUser);
+    void deleteAdminUserById(Long id);
+    AdminUser getAdminUserById(Long id);
+    List<AdminUser> getAdminUserAll();
 
 }

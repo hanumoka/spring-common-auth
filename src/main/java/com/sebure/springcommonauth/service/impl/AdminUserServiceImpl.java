@@ -20,25 +20,25 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Transactional
     @Override
-    public AdminUser save(AdminUser adminUser) {
+    public AdminUser saveAdminUser(AdminUser adminUser) {
         return adminUserRepository.save(adminUser);
     }
 
     @Transactional
     @Override
-    public void deleteById(Long id) {
+    public void deleteAdminUserById(Long id) {
         adminUserRepository.deleteById(id);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public AdminUser getById(Long id) {
+    public AdminUser getAdminUserById(Long id) {
         return adminUserRepository.findById(id).orElse(null);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<AdminUser> getAll() {
+    public List<AdminUser> getAdminUserAll() {
         return adminUserRepository.findAll();
     }
 }
