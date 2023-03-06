@@ -24,9 +24,7 @@
 |          | AdminUser 단건삭제 | delete      | /admin-users/{id} |
 |          | AdminUser 단건수정 | put         | /admin-users/{id} |
 
-
 # 메모
-
 
 ## docker로 redis 설치하기
 
@@ -53,6 +51,12 @@ docker run --name my-redis \
              -d redis:alpine redis-server --appendonly yes
 ```
 
+- redis cli 로 접근해보기
+
+```shell
+ docker run -it --network redis-net --rm redis:alpine redis-cli -h my-redis
+```
+
 
 
 
@@ -61,7 +65,6 @@ docker run --name my-redis \
 - spring service test
 
 https://velog.io/@hellonayeon/spring-boot-service-layer-unit-testcode
-
 
 - docker redis
 
