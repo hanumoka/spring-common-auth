@@ -1,5 +1,7 @@
 package com.sebure.springcommonauth.controller;
 
+import com.sebure.springcommonauth.controller.dto.in.LoginInDto;
+import com.sebure.springcommonauth.controller.dto.out.TokenOutDto;
 import com.sebure.springcommonauth.entity.AdminUser;
 import com.sebure.springcommonauth.service.AdminUserService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +14,13 @@ import org.springframework.web.bind.annotation.*;
 public class AdminUserController {
 
     private final AdminUserService adminUserService;
+
+    @PostMapping("/_login")
+    public ResponseEntity<TokenOutDto> login(){
+        TokenOutDto tokenOutDto = new TokenOutDto();
+        return ResponseEntity.ok(tokenOutDto);
+//        return ResponseEntity.ok("_login");
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<AdminUser> getUserById(@PathVariable("id") Long id) {
