@@ -2,10 +2,10 @@
 
 ### TodoList
 
+- swagger 설정 (작업중)
 - AdminUser CRUD API
 - Admonrole CRUD API
 - ResourceApi CRUD API
-- Swagger
 - 도커로 빌드
 - 라이트 세일에 배포(도커허브 사용)
 
@@ -56,9 +56,6 @@ docker run --name my-redis \
 ```shell
  docker run -it --network redis-net --rm redis:alpine redis-cli -h my-redis
 ```
-
-
-
 
 ### 참고자료
 

@@ -1,6 +1,5 @@
 package com.sebure.springcommonauth.controller;
 
-import com.sebure.springcommonauth.controller.dto.in.LoginInDto;
 import com.sebure.springcommonauth.controller.dto.out.TokenOutDto;
 import com.sebure.springcommonauth.entity.AdminUser;
 import com.sebure.springcommonauth.service.AdminUserService;
@@ -19,7 +18,6 @@ public class AdminUserController {
     public ResponseEntity<TokenOutDto> login(){
         TokenOutDto tokenOutDto = new TokenOutDto();
         return ResponseEntity.ok(tokenOutDto);
-//        return ResponseEntity.ok("_login");
     }
 
     @GetMapping("/{id}")
