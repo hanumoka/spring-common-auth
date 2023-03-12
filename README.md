@@ -2,6 +2,7 @@
 
 ### TodoList
 
+- AdminUser _login, _me api 추가(작업중)
 - swagger 설정 (작업중)
 - AdminUser CRUD API
 - Admonrole CRUD API
