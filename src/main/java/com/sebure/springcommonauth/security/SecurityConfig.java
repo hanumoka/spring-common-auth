@@ -42,11 +42,4 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-    //AuthenticationManager이 등록되면서 PasswordEncoder빈을 자동으로 주입받이 Security에서 자동으로 생성하는 계정이 꺼지게 된다.
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-            throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
 }
