@@ -2,6 +2,8 @@ package com.sebure.springcommonauth.entity;
 
 
 import com.sebure.springcommonauth.entity.base.BaseTimeEntity;
+import org.hibernate.annotations.Comment;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 @Entity
 public class AdminRole extends BaseTimeEntity {
 
+    @Comment("pk")
     @Id
     @Column(name ="id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
