@@ -1,11 +1,21 @@
 package com.sebure.springcommonauth.entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.sebure.springcommonauth.entity.base.BaseEntity;
+import com.sebure.springcommonauth.entity.base.BaseTimeEntity;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-public abstract class User {
+import javax.persistence.*;
+
+
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Table(name= "user")
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "dtype")
+public abstract class User extends BaseEntity {
 
     @Id
     @Column(name ="id")
@@ -23,4 +33,5 @@ public abstract class User {
 
     @Column(name ="blocked")
     private Boolean blocked;
+
 }
