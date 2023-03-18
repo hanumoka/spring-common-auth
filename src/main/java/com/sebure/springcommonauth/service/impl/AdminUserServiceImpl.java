@@ -18,6 +18,11 @@ public class AdminUserServiceImpl implements AdminUserService {
         this.adminUserRepository = adminUserRepository;
     }
 
+    @Override
+    public AdminUser getAdminUserByUsername(String username) {
+        return adminUserRepository.findByUsername(username).orElse(null);
+    }
+
     @Transactional
     @Override
     public AdminUser saveAdminUser(AdminUser adminUser) {

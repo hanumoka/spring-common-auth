@@ -2,6 +2,7 @@ package com.sebure.springcommonauth.entity;
 
 
 import lombok.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -17,17 +18,18 @@ import java.util.List;
 @Entity
 public class AdminUser extends User {
 
+
     @OneToMany(mappedBy = "adminUser")
     private List<AdminUserRoleLink> adminUserRoleLinkList = new ArrayList<>();
 
-    @Column(name ="email")
-    private String email;
 
-    @Column(name ="last_login_ip")
-    private String lastLoginIp;
+    public boolean checkMemberValidity(){
+        return super.getActive() && !super.getBlocked();
+    }
 
-    @Column(name ="last_login_datetime")
-    private LocalDateTime lastLoginDateTime;
+    public boolean checkPassword(String password, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(password, super.getPassword());
+    }
 
 //    public static AdminUser create(String username, String email, String password,
 //                         Boolean active, Boolean blocked) {
