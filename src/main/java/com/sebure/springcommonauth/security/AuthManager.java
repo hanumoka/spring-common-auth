@@ -1,8 +1,8 @@
 package com.sebure.springcommonauth.security;
 
 import com.sebure.springcommonauth.controller.dto.in.LoginInDto;
-import com.sebure.springcommonauth.controller.dto.out.TokenOutDto;
+import com.sebure.springcommonauth.common.dto.TokenDto;
 
 public interface AuthManager {
-    TokenOutDto loginAdminUser(LoginInDto loginInDto);
+    TokenDto loginAdminUser(LoginInDto loginInDto);
 }

@@ -67,3 +67,7 @@ https://velog.io/@hellonayeon/spring-boot-service-layer-unit-testcode
 - docker redis
 
 https://emflant.tistory.com/235
+
+- 공통예외설계에 대한 참고
+
+https://cheese10yun.github.io/spring-guide-exception/

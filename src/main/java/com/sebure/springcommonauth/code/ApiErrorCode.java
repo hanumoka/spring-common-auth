@@ -6,7 +6,8 @@ import org.springframework.http.HttpStatus;
 @Getter
 public enum ApiErrorCode {
     SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, 5001, "서버에 장애가 발생했습니다."),
-    LOGIN_ERROR(HttpStatus.UNAUTHORIZED, 4011, "로그인 실패")
+    LOGIN_ERROR(HttpStatus.UNAUTHORIZED, 4011, "로그인 실패"),
+    AUTHENTICATION_ERROR(HttpStatus.UNAUTHORIZED, 4012, "인증정보 오류")
 
     ;
     private final HttpStatus httpStatus;

@@ -1,8 +1,7 @@
-package com.sebure.springcommonauth.controller.dto.out;
+package com.sebure.springcommonauth.common.dto;
 
 import com.sebure.springcommonauth.code.ApiErrorCode;
 import com.sebure.springcommonauth.code.ApiSuccessCode;
-import lombok.Builder;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

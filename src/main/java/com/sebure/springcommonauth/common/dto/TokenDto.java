@@ -1,9 +1,9 @@
-package com.sebure.springcommonauth.controller.dto.out;
+package com.sebure.springcommonauth.common.dto;
 
 import lombok.Data;
 
 @Data
-public class TokenOutDto {
+public class TokenDto {
     private String accessToken;
     private String refreshToken;
 }

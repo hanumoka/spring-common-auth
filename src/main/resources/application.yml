@@ -38,3 +38,12 @@ springdoc:
     disabled: true
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
+
+custom:
+  jwt:
+    access-token:
+      secret: lY9aYb+z5jR666e9x9W5oXOjqBa5eioaX1tqnMT60f4=
+      expiration-seconds : 60000
+    refresh-token:
+      secret: ETgtmCXWisb5IW6enkMS0NfFmI3Yc7pJcaC2J3Me80I=
+      expiration-seconds : 120000
