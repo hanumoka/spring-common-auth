@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @Table(name = "user")
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "dtype")
+@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class User extends BaseEntity {
 
     @Id
@@ -24,16 +25,19 @@ public abstract class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "active")
+    @Column(name = "user_type", insertable = false, updatable = false)
+    private String userType;
+
+    @Column(name = "active", columnDefinition = "TINYINT")
     private Boolean active;
 
-    @Column(name = "blocked")
+    @Column(name = "blocked", columnDefinition = "TINYINT")
     private Boolean blocked;
 
     @Column(name = "email")
@@ -44,5 +48,13 @@ public abstract class User extends BaseEntity {
 
     @Column(name = "last_login_datetime")
     private LocalDateTime lastLoginDateTime;
+
+    public boolean checkMemberValidity(){
+        return this.getActive() && !this.getBlocked();
+    }
+
+    public boolean checkPassword(String password, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(password, this.getPassword());
+    }
 
 }

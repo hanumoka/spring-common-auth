@@ -14,22 +14,16 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @PrimaryKeyJoinColumn(name="user_id")
+@DiscriminatorValue("admin_user")
 @Table(name="admin_user")
 @Entity
 public class AdminUser extends User {
-
 
     @OneToMany(mappedBy = "adminUser")
     private List<AdminUserRoleLink> adminUserRoleLinkList = new ArrayList<>();
 
 
-    public boolean checkMemberValidity(){
-        return super.getActive() && !super.getBlocked();
-    }
 
-    public boolean checkPassword(String password, PasswordEncoder passwordEncoder) {
-        return passwordEncoder.matches(password, super.getPassword());
-    }
 
 //    public static AdminUser create(String username, String email, String password,
 //                         Boolean active, Boolean blocked) {

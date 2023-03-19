@@ -1,8 +1,9 @@
 package com.sebure.springcommonauth.security.jwt;
 
 import com.sebure.springcommonauth.common.dto.TokenDto;
-import com.sebure.springcommonauth.entity.AdminUser;
+import org.springframework.security.core.Authentication;
 
 public interface JwtProvider {
-    TokenDto createAdminUserTokens(AdminUser adminUser);
+
+    TokenDto generateTokens(Authentication authentication);
 }

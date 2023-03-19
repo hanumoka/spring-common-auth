@@ -1,6 +1,6 @@
 package com.sebure.springcommonauth.code;
 
-public enum AuthType {
+public enum UserType {
     AdminUser,
     MemberUser
     ;
