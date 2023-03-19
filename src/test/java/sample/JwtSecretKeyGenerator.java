@@ -1,20 +1,21 @@
 package sample;
 
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.io.Encoders;
+import io.jsonwebtoken.security.Keys;
+
+import javax.crypto.SecretKey;
 import java.security.SecureRandom;
 import java.util.Base64;
 
 public class JwtSecretKeyGenerator {
 
+
+
     public static String generateSecretKey() {
-        // 256비트의 길이를 가지는 안전한 난수 생성기를 생성합니다.
-        SecureRandom secureRandom = new SecureRandom();
-        byte[] randomBytes = new byte[32]; // 32바이트 = 256비트
-        secureRandom.nextBytes(randomBytes);
-
-        // Base64 인코딩을 사용하여 바이트 배열을 문자열로 변환합니다.
-        String secretKey = Base64.getEncoder().encodeToString(randomBytes);
-
-        return secretKey;
+        SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        return Encoders.BASE64.encode(key.getEncoded());
     }
 
     public static void main(String[] args) {

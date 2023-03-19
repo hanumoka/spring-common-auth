@@ -49,8 +49,8 @@ springdoc:
 custom:
   jwt:
     access-token:
-      secret-key: lY9aYb+z5jR666e9x9W5oXOjqBa5eioaX1tqnMT60f4=
+      secret-key: RJj2ud9ve2qjlC5K8s/he8nf8Vc00gvLrFvbBGk//6PYxJwtk1xKrpQ1/7MP/1rKZzpALI7iEdTIzPNhoinG6g==
       expiration-milliseconds : 60000
     refresh-token:
-      secret-key: ETgtmCXWisb5IW6enkMS0NfFmI3Yc7pJcaC2J3Me80I=
+      secret-key: Rf2D1dKxpcrVzoMqoHL+/r28q2sii0X08OElhWTEQi3lHuugt2IBG1jEOIBxTnDvIWGvwSVleXyCYnkTZw4SPg==
       expiration-milliseconds : 120000

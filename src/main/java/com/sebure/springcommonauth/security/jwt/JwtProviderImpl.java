@@ -27,9 +27,9 @@ public class JwtProviderImpl implements JwtProvider {
 
     public JwtProviderImpl(
             @Value("${custom.jwt.access-token.secret-key}") String accessTokenSecretKey
-            , @Value("${custom.jwt.access-token.secret-key}") String refreshTokenSecretKey
+            , @Value("${custom.jwt.refresh-token.secret-key}") String refreshTokenSecretKey
             , @Value("${custom.jwt.access-token.expiration-milliseconds}") Long accessTokenExpiration
-            , @Value("${custom.jwt.access-token.expiration-milliseconds}")Long refreshTokenExpiration) {
+            , @Value("${custom.jwt.refresh-token.expiration-milliseconds}")Long refreshTokenExpiration) {
 
         this.accessTokenSecretKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(accessTokenSecretKey));
         this.refreshTokenSecretKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(refreshTokenSecretKey));
