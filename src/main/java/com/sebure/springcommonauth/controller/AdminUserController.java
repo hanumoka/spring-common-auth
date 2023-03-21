@@ -2,9 +2,9 @@ package com.sebure.springcommonauth.controller;
 
 import com.sebure.springcommonauth.controller.dto.in.LoginInDto;
 import com.sebure.springcommonauth.common.dto.TokenDto;
-import com.sebure.springcommonauth.entity.AdminUser;
-import com.sebure.springcommonauth.security.AuthManager;
+import com.sebure.springcommonauth.security.authmamager.AuthManager;
 import com.sebure.springcommonauth.service.AdminUserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -18,20 +18,16 @@ public class AdminUserController {
 
     private final AuthManager authManager;
 
-    private final AdminUserService adminUserService;
-
     @PostMapping("/_login")
-    public ResponseEntity<TokenDto> login(@RequestBody LoginInDto loginInDto) throws Exception {
+    public ResponseEntity<TokenDto> login(@RequestBody LoginInDto loginInDto) {
         return ResponseEntity.ok(authManager.loginAdminUser(loginInDto));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<AdminUser> getUserById(@PathVariable("id") Long id) {
-        AdminUser adminUser = adminUserService.getAdminUserById(id);
-        if (adminUser == null) {
-            return ResponseEntity.notFound().build();
-        } else {
-            return ResponseEntity.ok(adminUser);
-        }
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping("/_me")
+    public ResponseEntity<?> getMe(){
+        log.info("get me...");
+        return ResponseEntity.ok(null);
     }
+
 }

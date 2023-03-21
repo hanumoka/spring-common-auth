@@ -13,7 +13,7 @@ import java.util.Collection;
 @Getter
 public class CustomUserAuthToken implements Authentication {
 
-    private UserType userType;
+    private final UserType userType;
     private final Long id;
     private final String username;
     private final String accessToken;

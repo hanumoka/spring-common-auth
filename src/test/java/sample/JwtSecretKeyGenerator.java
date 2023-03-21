@@ -1,17 +1,12 @@
 package sample;
 
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
 
 import javax.crypto.SecretKey;
-import java.security.SecureRandom;
-import java.util.Base64;
 
 public class JwtSecretKeyGenerator {
-
-
 
     public static String generateSecretKey() {
         SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
