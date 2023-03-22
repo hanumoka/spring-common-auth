@@ -74,5 +74,20 @@ public class AuthManagerImpl implements AuthManager {
 
     }
 
+    @Override
+    public CustomUserAuthToken getAuthentication() {
+        return (CustomUserAuthToken) SecurityContextHolder.getContext().getAuthentication();
+    }
+
+    @Override
+    public AdminUser getAdminUserAuthentication() {
+        CustomUserAuthToken customUserAuthToken = getAuthentication();
+        if(Objects.nonNull(customUserAuthToken) &&
+                UserType.AdminUser.equals(customUserAuthToken.getUserType())){
+            return adminUserService.getAdminUserById(customUserAuthToken.getId());
+        }
+        return null;
+    }
+
 
 }

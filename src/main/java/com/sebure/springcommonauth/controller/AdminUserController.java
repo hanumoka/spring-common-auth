@@ -2,6 +2,8 @@ package com.sebure.springcommonauth.controller;
 
 import com.sebure.springcommonauth.controller.dto.in.LoginInDto;
 import com.sebure.springcommonauth.common.dto.TokenDto;
+import com.sebure.springcommonauth.entity.AdminUser;
+import com.sebure.springcommonauth.security.CustomUserAuthToken;
 import com.sebure.springcommonauth.security.authmamager.AuthManager;
 import com.sebure.springcommonauth.service.AdminUserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -25,9 +27,10 @@ public class AdminUserController {
 
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/_me")
-    public ResponseEntity<?> getMe(){
+    public ResponseEntity<AdminUser> getMe(){
         log.info("get me...");
-        return ResponseEntity.ok(null);
+        AdminUser adminUser = authManager.getAdminUserAuthentication();
+        return ResponseEntity.ok(adminUser);
     }
 
 }
